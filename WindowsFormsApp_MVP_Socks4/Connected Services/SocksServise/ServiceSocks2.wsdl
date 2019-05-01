@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.Web.org/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ServiceSocks2" targetNamespace="http://soap.Web.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://soap.Web.org/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="checkDB" type="tns:checkDB" />
+      <xs:element name="checkDBResponse" type="tns:checkDBResponse" />
+      <xs:element name="delete" type="tns:delete" />
+      <xs:element name="deleteResponse" type="tns:deleteResponse" />
+      <xs:element name="read" type="tns:read" />
+      <xs:element name="readAll" type="tns:readAll" />
+      <xs:element name="readAllResponse" type="tns:readAllResponse" />
+      <xs:element name="readResponse" type="tns:readResponse" />
+      <xs:element name="save" type="tns:save" />
+      <xs:element name="saveResponse" type="tns:saveResponse" />
+      <xs:complexType name="checkDB">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkDBResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="save">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="arg0" type="tns:type" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="type">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="saveResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="read">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="readResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:type" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="delete">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="readAll">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="readAllResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:type" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="checkDBResponse">
+    <wsdl:part name="parameters" element="tns:checkDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="readResponse">
+    <wsdl:part name="parameters" element="tns:readResponse" />
+  </wsdl:message>
+  <wsdl:message name="readAllResponse">
+    <wsdl:part name="parameters" element="tns:readAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="read">
+    <wsdl:part name="parameters" element="tns:read" />
+  </wsdl:message>
+  <wsdl:message name="deleteResponse">
+    <wsdl:part name="parameters" element="tns:deleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkDB">
+    <wsdl:part name="parameters" element="tns:checkDB" />
+  </wsdl:message>
+  <wsdl:message name="save">
+    <wsdl:part name="parameters" element="tns:save" />
+  </wsdl:message>
+  <wsdl:message name="delete">
+    <wsdl:part name="parameters" element="tns:delete" />
+  </wsdl:message>
+  <wsdl:message name="saveResponse">
+    <wsdl:part name="parameters" element="tns:saveResponse" />
+  </wsdl:message>
+  <wsdl:message name="readAll">
+    <wsdl:part name="parameters" element="tns:readAll" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSocks2">
+    <wsdl:operation name="checkDB">
+      <wsdl:input name="checkDB" message="tns:checkDB" />
+      <wsdl:output name="checkDBResponse" message="tns:checkDBResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="save">
+      <wsdl:input name="save" message="tns:save" />
+      <wsdl:output name="saveResponse" message="tns:saveResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="read">
+      <wsdl:input name="read" message="tns:read" />
+      <wsdl:output name="readResponse" message="tns:readResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <wsdl:input name="delete" message="tns:delete" />
+      <wsdl:output name="deleteResponse" message="tns:deleteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="readAll">
+      <wsdl:input name="readAll" message="tns:readAll" />
+      <wsdl:output name="readAllResponse" message="tns:readAllResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSocks2SoapBinding" type="tns:ServiceSocks2">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="checkDB">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="checkDB">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkDBResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="save">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="save">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="saveResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="read">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="read">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="readResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="delete">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="readAll">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="readAll">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="readAllResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceSocks2">
+    <wsdl:port name="SocksServiseImpl2Port" binding="tns:ServiceSocks2SoapBinding">
+      <soap:address location="http://localhost:8080/socks-web/soap/testservice" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
